@@ -67,4 +67,6 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  config.jwt_secret_key = 'bfd8d6836a44c7a7dd5960946889ad26452281103c21c712323d1a967edc5dd4d79e31cbb07e2e1b92ce0df43cb0d41756675a6798c81a43193b3ca28594ca4a'
+  config.jwt_token_expire_time = 5.days
 end

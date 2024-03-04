@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :school 
+  post 'students', to: 'students#create'
+  delete 'students/user_id', to: 'students#delete'
 end
