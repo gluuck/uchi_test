@@ -7,7 +7,7 @@ module Api
         if subject.valid?
           render json: subject, status: :created
 
-
+        end
       end
 
       def destroy
