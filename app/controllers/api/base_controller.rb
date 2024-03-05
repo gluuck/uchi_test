@@ -11,10 +11,8 @@ module Api
       render_errors errors: result, status:
     end
 
-    def render_success(resource = nil, status: :ok)
-      result = { success: true }
-      result.merge!(resource) if resource
-      render json: result, status:
+    def render_success(resource = nil, status: :ok, token: [])
+      render json: resource, status:, success: true, token: token
     end
   end
 end

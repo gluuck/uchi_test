@@ -32,6 +32,7 @@ module UchiTest
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
+    config.autoload_paths += Dir[Rails.root.join('app', 'interactions')]
     config.generators.system_tests = nil
   end
 end

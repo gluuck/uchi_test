@@ -1,8 +1,8 @@
-module Student
+module Students
   class CreateStudent < ActiveInteraction::Base
-    string :first_name, :last_name, :surname, :school_id, :class_id
+    string :first_name, :last_name, :surname, :school_id, :class_room_id
 
-    validates :first_name, :last_name, :surname, :school_id, :class_id, presence: true
+    validates :first_name, :last_name, :surname, :school_id, :class_room_id, presence: true
 
     def execute
       student = Student.new inputs

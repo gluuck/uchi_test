@@ -1,8 +1,7 @@
 class CreateJwtToken < ActiveInteraction::Base
   SECRET_KEY = Rails.configuration.jwt_secret_key
-
-  object :student
-
+  
+  string :first_name
   validate :check_student
 
   def execute
@@ -16,7 +15,7 @@ class CreateJwtToken < ActiveInteraction::Base
   attr_reader :invalid
 
   def check_student
-    @student ||= Student.find_by(id: student.id)
+    @student ||= Student.find_by(first_name: first_name)
     errors.add :invalid unless @student
   end
 
