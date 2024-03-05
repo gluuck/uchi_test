@@ -11,10 +11,16 @@ module Api
         render_success subject.result, status: :created, token: token if subject.valid?
       end
 
+      def show
+        school = School.find(params[:school_id])
+        class_room = school.class_rooms.includes(:students).find(params[:class_room_id])
+        render_success class_room.students.limit(10)
+      end
+
       def destroy
         student = Student.find(params[:user_id])
         subject = Students::DestroyStudent.run student: student
-        
+
         return render_resource_errors subject unless subject.valid?
         render_success 
       end      
