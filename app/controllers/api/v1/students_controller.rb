@@ -12,8 +12,8 @@ module Api
       end
 
       def show
-        school = School.find(params[:school_id])
-        class_room = school.class_rooms.includes(:students).find(params[:class_room_id])
+        school = School.find(params[:student][:school_id])
+        class_room = school.class_rooms.includes(:students).find(params[:student][:class_room_id])
         render_success class_room.students.limit(10)
       end
 
