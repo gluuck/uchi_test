@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class BaseController < ActionController::API
     def render_errors(errors: [], status: :unprocessable_entity)
@@ -12,7 +14,7 @@ module Api
     end
 
     def render_success(resource = nil, status: :ok, token: [])
-      render json: resource, status:, success: true, token: token
+      render json: resource, status:, success: true, token:
     end
   end
 end

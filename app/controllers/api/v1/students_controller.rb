@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class StudentsController < Api::BaseController
-
       rescue_from ActiveRecord::RecordNotFound, with: :student_not_found
 
       def create
         subject = Students::CreateStudent.run student_params
-        
+
         return render_resource_errors subject unless subject.valid?
+
         render_success subject.result, status: :created, token: token if subject.valid?
       end
 
@@ -19,11 +21,12 @@ module Api
 
       def destroy
         student = Student.find(params[:user_id])
-        subject = Students::DestroyStudent.run student: student
+        subject = Students::DestroyStudent.run(student:)
 
         return render_resource_errors subject unless subject.valid?
-        render_success 
-      end      
+
+        render_success
+      end
 
       private
 
@@ -34,6 +37,7 @@ module Api
       def token
         subject = CreateJwtToken.run student_params
         return render_resource_errors subject, status: :unauthorized unless subject.valid?
+
         { token: subject.result }
       end
 

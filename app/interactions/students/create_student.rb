@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Students
   class CreateStudent < ActiveInteraction::Base
     string :first_name, :last_name, :surname, :school_id, :class_room_id

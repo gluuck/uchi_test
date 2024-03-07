@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,39 +12,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_04_062348) do
+ActiveRecord::Schema[7.0].define(version: 20_240_304_062_348) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "class_rooms", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "letter", null: false
-    t.integer "students_count", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "school_id"
-    t.index ["school_id"], name: "index_class_rooms_on_school_id"
+  create_table 'class_rooms', force: :cascade do |t|
+    t.integer 'number', null: false
+    t.string 'letter', null: false
+    t.integer 'students_count', default: 0, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'school_id'
+    t.index ['school_id'], name: 'index_class_rooms_on_school_id'
   end
 
-  create_table "schools", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'schools', force: :cascade do |t|
+    t.integer 'number', null: false
+    t.string 'title', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "surname", null: false
-    t.bigint "class_room_id", null: false
-    t.bigint "school_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["class_room_id"], name: "index_students_on_class_room_id"
-    t.index ["school_id"], name: "index_students_on_school_id"
+  create_table 'students', force: :cascade do |t|
+    t.string 'first_name', null: false
+    t.string 'last_name', null: false
+    t.string 'surname', null: false
+    t.bigint 'class_room_id', null: false
+    t.bigint 'school_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['class_room_id'], name: 'index_students_on_class_room_id'
+    t.index ['school_id'], name: 'index_students_on_school_id'
   end
 
-  add_foreign_key "students", "class_rooms"
-  add_foreign_key "students", "schools"
+  add_foreign_key 'students', 'class_rooms'
+  add_foreign_key 'students', 'schools'
 end
