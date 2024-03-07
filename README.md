@@ -5,4 +5,4 @@
 * Docker
 
 ## Запуск проекта 
-1. docker-compose up иди  docker-compose up -d для сокрытия логов сервера
+1. docker-compose up или  docker-compose up -d для сокрытия логов сервера
